@@ -111,12 +111,14 @@ async def ping(ctx):
     await ctx.send(f"**{round(bot.latency * 1000)}ms**...\nPas ouf, sale pédale.")
     print("Tu as exécuté(e) la commande \"$ping\"")
     print("Tu as {}ms\n".format(round(bot.latency * 1000)))
+    print("\n")
 
 
 @bot.command()
 async def purge(ctx, amount = 9999999999999999999999999999 * 66666666666666666666666666666 * 1337 * 212):
     await ctx.channel.purge(limit=amount)
     print("Tu as exécuté(e) la commande \"$purge\"\nPlus aucune trace de toi sur ce channel.\n")
+    print("\n")
 
 
 @bot.command()
@@ -133,6 +135,7 @@ async def kick(ctx, user : discord.User, *reason):
         await ctx.guild.kick(user, reason = reason)
         await ctx.send(f"**{user}** a été exclu. La raison de cette exclusion est la suivante \"**{reason}**\".")
         print(f"{user} a été exclu(e) avec succès !")
+        print("\n")
     except:
         await ctx.send(f"Tu peux pas exclure **{user}**.")
         print(f"{user} ne peut pas être exclu(e).")
@@ -163,6 +166,7 @@ async def unban(ctx, user, *reason):
         if menthings.user.name == userName and menthings.user.id == userID:
             await ctx.guild.unban(menthings.user, reason = reason)
             print("**{}** a été unban.\nRaison : **{}**".format(user, reason))
+            print("\n")
         else:
             await ctx.send(f"**{user}** introuvable, sale zgueg.")
 
